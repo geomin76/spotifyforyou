@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<br>
+<!--need to add required fields w js-->
+<form class="form-inline" method="POST" action="{{ url_for('recs_final') }}">
+	<div class="form-group" align="center">
+		<label for="name">Name of your generated playlist:</label>
+		<input type="string" id="name" name="name" required>
+		<br>
+		<br>
+		<label for="quantity">Number of songs (between 1 and 100):</label>
+		<input type="number" id="quantity" name="quantity" min="1" max="100" required>
+		<br>
+		<br>
+		<div class="input-group">
+			<span class="input-group-addon">Please select a genre</span>
+				<select name="comp_select" class="selectpicker form-control" required>
+					{% for gen in genre %}
+						<option value="{{ gen }}">{{ gen }}</option>
+					{% endfor %}
+				</select>
+		</div>
+		<br>
+		<br>
+		<label for="danceability">Target Danceability (between 1 and 100):</label>
+		<input type="number" id="danceability" name="danceability" min="1" max="100">
+		<br>
+		<br>
+		<label for="valence">Target Happiness (between 1 and 100):</label>
+		<input type="number" id="valence" name="valence" min="1" max="100">
+		<br>
+		<br>
+		<label for="energy">Target Energy Level (between 1 and 100):</label>
+		<input type="number" id="energy" name="energy" min="1" max="100">
+		<br>
+		<button type="submit" class="btn btn-default">Create the playlist</button>
+	</div>
+</form>
+<br>
+<br>
+<br>
+{% endblock %}

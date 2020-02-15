@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div align="center">
+	<form action="/playlist_intro">
+		<input type="submit" value="Go back to select another playlist!">
+	</form>
+</div>
+<br>
+<p>You selected your playlist: {{ playlist.name }}</p>
+<p>Your playlist danceability average is {{ stats.danceability }} out of 100</p>
+<p>Your playlist valence (happiness) average is {{ stats.valence }} out of 100</p>
+<p>Your playlist energy average is {{ stats.energy }} out of 100</p>
+<p>Your playlist tempo average is {{ stats.tempo }} BPM</p>
+<br>
+
+<p>The values shown are computed through Spotify's track analysis</p>
+
+{% endblock %}

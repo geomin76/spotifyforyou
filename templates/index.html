@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if data %}
+
+<h2>Welcome, {{ data.user }}!</h2>
+<h3>Your current song playing: {{ data.name }} by {{ data.artist }}</h3>
+<div align="center">
+	<iframe id="test" src={{ data.link }} width="300" height="80" frameborder="0" allowtransparency="false"  allow="encrypted-media"></iframe>
+</div>
+<p> {{ data.moredata }}</p>
+<p> The danceability of the song is {{ data.stats.dance }} out of 100</p>
+<p> The valence (happiness) of the song is {{ data.stats.valence }} out of 100</p>
+<p> The energy of the song is {{ data.stats.energy }} out of 100</p>
+<p> The tempo of the song is {{ data.stats.tempo }} BPM</p>
+<br>
+<p>The values shown are computed through Spotify's track analysis</p>
+
+{% else %}
+<p>Nothing is playing! Play some music!</p>
+{% endif %}
+<br>
+<p>Website is still under development... sry</p>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<br>
+<p>Select one of your playlists and learn statistics about your playlist!</p>
+
+<form class="form-inline" method="POST" action="{{ url_for('playlist_select') }}">
+	<div class="form-group" align="center">
+		<div class="input-group">
+			<span class="input-group-addon">Please select a playlist</span>
+				<select name="comp_select" class="selectpicker form-control">
+					{% for playlist in playlists %}
+						<option value="{{ playlist }}">{{ playlist.name }}</option>
+					{% endfor %}
+				</select>
+		</div>
+		<br>
+		<button type="submit" class="btn btn-default">Select</button>
+	</div>
+</form>
+<br>
+<br>
+{% endblock %}
