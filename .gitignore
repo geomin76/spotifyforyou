@@ -1,0 +1,6 @@
+/.idea/*
+/.idea
+secrets.py
+secrets.pyc
+/__pycache__/*
+/__pycache__

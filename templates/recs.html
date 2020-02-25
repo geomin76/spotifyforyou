@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
+		<br>
+		<h1>Generate a playlist</h1>
+		<p>Create a playlist with your desired statistics</p>
+		<br>
+		<form method="POST" action="{{ url_for('recs_final') }}">
+			<div class="form-group">
+				<label for="name">Name of your generated playlist:</label>
+				<input type="string" id="name" name="name" required>
+			</div>
+			<div class="form-group">
+				<label for="quantity">Number of songs (between 1 and 100):</label>
+				<input type="number" id="quantity" name="quantity" min="1" max="100" required>
+			</div>
+			<div class="form-group">
+				<div class="input-group">
+					<span class="input-group-addon">Please select a genre &nbsp;</span>
+						<select name="comp_select" class="selectpicker form-control" required>
+							{% for gen in genre %}
+								<option value="{{ gen }}">{{ gen }}</option>
+							{% endfor %}
+						</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="danceability">Target Danceability (between 1 and 100):</label>
+				<input type="number" id="danceability" name="danceability" min="1" max="100">
+			</div>
+			<div class="form-group">
+				<label for="valence">Target Happiness (between 1 and 100):</label>
+				<input type="number" id="valence" name="valence" min="1" max="100">
+			</div>
+			<div class="form-group">
+				<label for="energy">Target Energy Level (between 1 and 100):</label>
+				<input type="number" id="energy" name="energy" min="1" max="100">
+			</div>
+			<button type="submit" class="btn btn-primary">Create the playlist</button>
+		</form>
+	</div>
+</div>
+{% endblock %}

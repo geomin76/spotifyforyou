@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
+		<br>
+		<h1>Your Top Artists and Tracks</h1>
+		<p>Discover your top artists and tracks based on a time frame</p>
+		<br>
+		<form method="POST" action="{{ url_for('top_stats') }}">
+			<p>Please select your time frame</p>
+			<div class="form-check">
+				<input type="radio" id="short_term" name="time" value="short_term">
+				<label for="short_term">Short Term (last 4 weeks)</label><br>
+			</div>
+			<div class="form-check">
+				<input type="radio" id="medium_term" name="time" value="medium_term">
+				<label for="medium_term">Medium Term (last 6 months)</label><br>
+			</div>
+			<div class="form-check">
+				<input type="radio" id="long_term" name="time" value="long_term">
+				<label for="long_term">Long Term (last several years)</label><br>
+			</div>
+			<div class="form-group">
+				<label for="limit">Number of Artists and Tracks (between 1 and 50):</label>
+				<input type="number" id="limit" name="limit" min="1" max="50" required>
+			</div>
+			<button type="submit" class="btn btn-primary">Find Top Artists and Tracks</button>
+		</form>
+	</div>
+</div>
+{% endblock %}

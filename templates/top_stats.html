@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+<div class="row">
+	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+		<ol>
+			{% for track in stats.tracks %}
+			<li> {{ track }}</li>
+			{% endfor %}
+		</ol>
+	</div>
+	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+		<ol>
+			{% for artist in stats.artists %}
+			<li> {{ artist }}</li>
+			{% endfor %}
+		</ol>
+	</div>
+	<div align="center">
+		<form action="/top_stats_intro">
+			<input type="submit" value="Find out other top artists and tracks">
+		</form>
+	</div>
+</div>
+{% endblock %}

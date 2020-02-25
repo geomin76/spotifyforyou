@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
+		<br>
+		<p>You selected your playlist: {{ playlist.name }}</p>
+		<p> The danceability of the playlist out of 100 is:</p>
+		<div class="progress" style="height: 30px; font-size:20px;">
+			<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: {{ stats.danceability }}%" aria-valuenow={{ stats.danceability  }} aria-valuemin="0" aria-valuemax="100">{{ stats.danceability  }}</div>
+		</div>
+		<br>
+		<p> The happiness of the playlist out of 100 is:</p>
+		<div class="progress" style="height: 30px; font-size:20px;">
+			<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: {{ stats.valence }}%" aria-valuenow={{ stats.valence }} aria-valuemin="0" aria-valuemax="100">{{ stats.valence }}</div>
+		</div>
+		<br>
+		<p> The energy of the playlist out of 100 is:</p>
+		<div class="progress" style="height: 30px; font-size:20px;">
+			<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: {{ stats.energy }}%" aria-valuenow={{ stats.energy }} aria-valuemin="0" aria-valuemax="100">{{ stats.energy }}</div>
+		</div>
+		<br>
+		
+		<p>The values shown are computed through Spotify's track analysis</p>
+		<div align="center">
+			<form action="/playlist_intro">
+				<button type="submit" class="btn btn-primary">Go back to select another playlist!</button>
+			</form>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
