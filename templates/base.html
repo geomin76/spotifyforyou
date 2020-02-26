@@ -5,29 +5,46 @@
 	<title>Spotify for you!</title>
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/ldbtn.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/loading.min.css') }}">
 	<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #05386B; color: #EDF5E1">
 	<div class="container">
-		<a class="navbar-brand" href="/index">Spotify For You</a>
+		<a class="navbar-brand ld-over-full" onclick="this.classList.toggle('running')" href="/index">
+			Spotify For You
+			<div class="ld ld-ring ld-spin"></div>
+		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
 		   <span class="navbar-toggler-icon"></span>
 		 </button>
 			<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 			    <ul class="navbar-nav mr-auto">
 				    <li class="nav-item">
-			        <a class="nav-link" href="/index">Home</a>
+			        <a class="nav-link ld-over-full" onclick="this.classList.toggle('running')" href="/index">
+				        Home
+			            <div class="ld ld-ring ld-spin"></div>
+			        </a>
 			      </li>
 			      <li class="nav-item">
-			        <a class="nav-link" href="/recs">Generate a playlist</a>
+			        <a class="nav-link ld-over-full" onclick="this.classList.toggle('running')" href="/recs">
+				        Generate a playlist
+				        <div class="ld ld-ring ld-spin"></div>
+			        </a>
 			      </li>
 			      <li class="nav-item">
-			        <a class="nav-link" href="playlist_intro">Playlist Statistics</a>
+			        <a class="nav-link ld-over-full" onclick="this.classList.toggle('running')" href="playlist_intro">
+				        Playlist Statistics
+				        <div class="ld ld-ring ld-spin"></div>
+			        </a>
 			      </li>
 			        <li class="nav-item">
-			        <a class="nav-link" href="/top_stats_intro">Your Top Artists and Tracks</a>
+			        <a class="nav-link ld-over-full" onclick="this.classList.toggle('running')" href="/top_stats_intro">
+				        Your Top Artists and Tracks
+				        <div class="ld ld-ring ld-spin"></div>
+			        </a>
 			      </li>
 			    </ul>
 			</div>

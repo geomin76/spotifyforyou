@@ -24,7 +24,10 @@
 		<p>The values shown are computed through Spotify's track analysis</p>
 		<div align="center">
 			<form action="/playlist_intro">
-				<button type="submit" class="btn btn-primary" style="background-color: #05386B">Go back to select another playlist!</button>
+				<button type="submit" class="btn btn-primary ld-over-full" onclick="this.classList.toggle('running')" style="background-color: #05386B">
+					Go back to select another playlist!
+					<div class="ld ld-ring ld-spin"></div>
+				</button>
 			</form>
 		</div>
 	</div>

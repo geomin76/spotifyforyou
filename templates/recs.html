@@ -28,17 +28,20 @@
 			</div>
 			<div class="form-group">
 				<label for="danceability">Target Danceability (between 1 and 100):</label>
-				<input type="number" id="danceability" name="danceability" min="1" max="100">
+				<input type="number" id="danceability" name="danceability" min="1" max="100" required>
 			</div>
 			<div class="form-group">
 				<label for="valence">Target Happiness (between 1 and 100):</label>
-				<input type="number" id="valence" name="valence" min="1" max="100">
+				<input type="number" id="valence" name="valence" min="1" max="100" required>
 			</div>
 			<div class="form-group">
 				<label for="energy">Target Energy Level (between 1 and 100):</label>
-				<input type="number" id="energy" name="energy" min="1" max="100">
+				<input type="number" id="energy" name="energy" min="1" max="100" required>
 			</div>
-			<button type="submit" class="btn btn-primary" style="background-color: #05386B">Create the playlist</button>
+			<button type="submit" class="btn btn-primary ld-over-full" onclick="this.classList.toggle('running')" style="background-color: #05386B">
+				Create the playlist
+				<div class="ld ld-ring ld-spin"></div>
+			</button>
 		</form>
 	</div>
 </div>

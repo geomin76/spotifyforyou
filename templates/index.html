@@ -28,9 +28,13 @@
 		<br>
 		<br>
 		<p>Playing a new song? </p>
-		<button class="btn btn-primary" onClick="window.location.reload();" style="background-color: #05386B">Click here for new statistics</button>
+		<button class="btn btn-primary ld-over-full" onclick="this.classList.toggle('running'); window.location.reload();" style="background-color: #05386B">
+			Click here for new statistics
+			<div class="ld ld-ring ld-spin"></div>
+		</button>
 		{% else %}
-		<p>Nothing is playing! Play some music!</p>
+		<p>You're not playing any music right now.</p>
+		<p>Play some music!</p>
 		{% endif %}
 	</div>
 </div>

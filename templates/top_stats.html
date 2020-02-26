@@ -20,7 +20,10 @@
 </div>
 <div align="center">
 	<form action="/top_stats_intro">
-		<button type="submit" class="btn btn-primary" style="background-color: #05386B">Find out other top artists and tracks</button>
+		<button type="submit" class="btn btn-primary ld-over-full" onclick="this.classList.toggle('running')" style="background-color: #05386B">
+			Find out other top artists and tracks
+			<div class="ld ld-ring ld-spin"></div>
+		</button>
 	</form>
 </div>
 {% endblock %}

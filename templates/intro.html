@@ -5,6 +5,8 @@
 	<title>Spotify for you!</title>
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/ldbtn.min.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/loading.min.css') }}">
 	<link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -13,7 +15,10 @@
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
 			<div class="divBox">
 				<h1 class="h1">Spotify For You</h1>
-				<a class="btn btn-primary btn-lg" href="/authorize" role="button" style="background-color: #05386B">Click here to begin!</a>
+				<a class="btn btn-primary btn-lg ld-over-full" onclick="this.classList.toggle('running')" href="/authorize" role="button" style="background-color: #05386B">
+					Click here to begin!
+					<div class="ld ld-ring ld-spin"></div>
+				</a>
 			</div>
 		</div>
 	</div>

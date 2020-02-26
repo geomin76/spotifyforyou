@@ -7,7 +7,10 @@
 		<p>There is a playlist in your Spotify library called {{ name }} with the specifications you wanted.</p>
 		<div align="center">
 			<form action="/recs">
-				<button type="submit" class="btn btn-primary" style="background-color: #05386B">Go back to make another playlist!</button>
+				<button type="submit" class="btn btn-primary ld-over-full" onclick="this.classList.toggle('running')" style="background-color: #05386B">
+					Go back to make another playlist!
+					<div class="ld ld-ring ld-spin"></div>
+				</button>
 			</form>
 		</div>
 	</div>
