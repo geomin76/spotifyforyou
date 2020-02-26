@@ -117,8 +117,8 @@ def recs_final():
         'valence': request.form['valence'],
         'energy': request.form['valence']
     }
-    recs_playlist(session['tokens'].get('access_token'), specs=specs)
-    return render_template("recs_final.html")
+    name = recs_playlist(session['tokens'].get('access_token'), specs=specs)
+    return render_template("recs_final.html", name=name)
 
 
 @app.route("/top_stats_intro")

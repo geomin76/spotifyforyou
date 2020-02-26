@@ -10,6 +10,7 @@
 		<div align="center">
 			<iframe id="test" src={{ data.link }} width="300" height="80" frameborder="0" allowtransparency="false"  allow="encrypted-media"></iframe>
 		</div>
+		<br>
 		<p> The danceability of the song out of 100 is:</p>
 		<div class="progress" style="height: 30px; font-size:20px;">
 			<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: {{ data.stats.dance }}%" aria-valuenow={{ data.stats.dance }} aria-valuemin="0" aria-valuemax="100">{{ data.stats.dance }}</div>
@@ -25,8 +26,9 @@
 			<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: {{ data.stats.energy }}%" aria-valuenow={{ data.stats.energy }} aria-valuemin="0" aria-valuemax="100">{{ data.stats.energy }}</div>
 		</div>
 		<br>
-<!--		button here for refresh in case of new song-->
-		<p>The values shown are computed through Spotify's track analysis</p>
+		<br>
+		<p>Playing a new song? </p>
+		<button class="btn btn-primary" onClick="window.location.reload();" style="background-color: #05386B">Click here for new statistics</button>
 		{% else %}
 		<p>Nothing is playing! Play some music!</p>
 		{% endif %}

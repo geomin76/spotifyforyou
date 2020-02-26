@@ -93,6 +93,7 @@ def recs_playlist(token, specs):
     # print(sp.current_user_playlists(1, 0)['items'][0]['id'])
     playlist_id = (sp.current_user_playlists(1, 0)['items'][0]['id'])
     sp.user_playlist_add_tracks(user_id, playlist_id, tracks)
+    return specs['name']
 
 
 def get_top(token, limit, time):
