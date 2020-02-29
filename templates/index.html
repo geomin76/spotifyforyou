@@ -26,6 +26,8 @@
 			<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: {{ data.stats.energy }}%" aria-valuenow={{ data.stats.energy }} aria-valuemin="0" aria-valuemax="100">{{ data.stats.energy }}</div>
 		</div>
 		<br>
+		<p style="font-size:17px;">The values shown are computed through Spotify's track analysis</p>
+		<br>
 		<br>
 		<p>Playing a new song? </p>
 		<button class="btn btn-primary ld-over-full" onclick="this.classList.toggle('running'); window.location.reload();" style="background-color: #05386B">
@@ -35,6 +37,11 @@
 		{% else %}
 		<p>You're not playing any music right now.</p>
 		<p>Play some music!</p>
+		<br>
+		<button class="btn btn-primary ld-over-full" onclick="this.classList.toggle('running'); window.location.reload();" style="background-color: #05386B">
+			Click here if you're playing music now!
+			<div class="ld ld-ring ld-spin"></div>
+		</button>
 		{% endif %}
 	</div>
 </div>

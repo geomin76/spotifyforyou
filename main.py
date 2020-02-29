@@ -75,7 +75,7 @@ def callback():
 @app.route('/index')
 def index():
     if 'tokens' not in session:
-        abort(400)
+        return render_template("intro.html")
     sp = spotipy.Spotify(auth=session['tokens'].get('access_token'))
     data = user_content(sp)
     playlists = playlist(sp)
@@ -84,6 +84,8 @@ def index():
 
 @app.route('/playlist_intro')
 def playlist_intro():
+    if 'tokens' not in session:
+        return render_template("intro.html")
     sp = spotipy.Spotify(auth=session['tokens'].get('access_token'))
     playlists = playlist(sp)
     return render_template('playlist_intro.html', playlists=playlists)
@@ -92,14 +94,19 @@ def playlist_intro():
 #clean this method
 @app.route('/playlist_select', methods=['GET', 'POST'])
 def playlist_select():
+    if 'tokens' not in session:
+        return render_template("intro.html")
     select = request.form.get('comp_select')
     sp = spotipy.Spotify(auth=session['tokens'].get('access_token'))
     stats = playlist_calculation(sp, select)
-    return render_template("playlist_select.html", playlist=select, stats=stats)
+    playlist_name = (select.split("'"))[3]
+    return render_template("playlist_select.html", playlist=playlist_name, stats=stats)
 
 
 @app.route("/recs")
 def recs():
+    if 'tokens' not in session:
+        return render_template("intro.html")
     sp = spotipy.Spotify(auth=session['tokens'].get('access_token'))
     genres = []
     for gen in sp.recommendation_genre_seeds()['genres']:
@@ -109,6 +116,8 @@ def recs():
 
 @app.route("/recs_final", methods=['GET', 'POST'])
 def recs_final():
+    if 'tokens' not in session:
+        return render_template("intro.html")
     specs = {
         'name': request.form['name'],
         'number': request.form['quantity'],
@@ -123,15 +132,23 @@ def recs_final():
 
 @app.route("/top_stats_intro")
 def top_stats_intro():
+    if 'tokens' not in session:
+        return render_template("intro.html")
     return render_template("top_stats_intro.html")
 
 
 @app.route("/top_stats", methods=['GET', 'POST'])
 def top_stats():
+    if 'tokens' not in session:
+        return render_template("intro.html")
     limit = request.form['limit']
     time = request.form['time']
     top = get_top(session['tokens'].get('access_token'), limit, time)
     return render_template("top_stats.html", stats=top)
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
 
 
 #use the search function and get a artist related to an artist, give top 10 songs and have it in a box

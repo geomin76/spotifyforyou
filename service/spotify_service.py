@@ -1,4 +1,3 @@
-#This function gets current playing track of user
 import requests
 import spotipy
 
