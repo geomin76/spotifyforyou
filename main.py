@@ -44,7 +44,6 @@ def main():
     return render_template('intro.html')
 
 
-
 @app.route("/authorize")
 def authorize():
     # Auth Step 1: Authorization
@@ -91,7 +90,6 @@ def playlist_intro():
     return render_template('playlist_intro.html', playlists=playlists)
 
 
-#clean this method
 @app.route('/playlist_select', methods=['GET', 'POST'])
 def playlist_select():
     if 'tokens' not in session:
@@ -121,11 +119,17 @@ def recs_final():
     specs = {
         'name': request.form['name'],
         'number': request.form['quantity'],
-        'select': request.form.get('comp_select'),
+        'select': request.form.getlist('comp_select'),
         'dance': request.form['danceability'],
-        'valence': request.form['valence'],
-        'energy': request.form['valence']
+        'energy': request.form['energy'],
+        'valence': request.form['valence']
     }
+    if not specs.get('dance'):
+        specs.pop('dance')
+    if not specs.get('energy'):
+        specs.pop('energy')
+    if not specs.get('valence'):
+        specs.pop('valence')
     name = recs_playlist(session['tokens'].get('access_token'), specs=specs)
     return render_template("recs_final.html", name=name)
 
@@ -150,8 +154,17 @@ def top_stats():
 def about():
     return render_template("about.html")
 
+@app.route("/related_artists")
+def related_artists():
+    return render_template("related_artists.html")
 
-#use the search function and get a artist related to an artist, give top 10 songs and have it in a box
+@app.route("/for_nerds")
+def for_nerds():
+    if 'tokens' not in session:
+        return render_template("intro.html")
+    sp = spotipy.Spotify(auth=session['tokens'].get('access_token'))
+    data = user_content(sp)
+    return render_template("for_nerds.html")
 
 
 if __name__ == '__main__':

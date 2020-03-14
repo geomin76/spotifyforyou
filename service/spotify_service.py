@@ -70,26 +70,35 @@ def playlist_calculation(sp, select):
 def recs_playlist(token, specs):
     url = "https://api.spotify.com/v1/recommendations?"
     url += "limit=" + str(specs['number']) + "&market=US&"
-    url += "seed_genres=" + str(specs['select']) + "&"  # if there are more, for loop and also include %2C%20 between each genre
-    # if statements if these exist
-    dance = float(specs['dance']) / 100
-    energy = float(specs['energy']) / 100
-    valence = float(specs['valence']) / 100
-    url += "target_danceability=" + str(dance) + "&"
-    url += "target_energy=" + str(energy) + "&"
-    url += "target_valence=" + str(valence)
+    url += "seed_genres="
+    #fix this, specs['select'] is list now!
+    count = len(specs['select'])
+    if count == 1:
+        url += str((specs['select'])[0])
+    else:
+        i = 0
+        while i != count - 1:
+            url += str((specs['select'])[i]) + "%2C"
+            i+=1
+        url += str((specs['select'])[count - 1])
+    if 'dance' in specs:
+        dance = float(specs['dance']) / 100
+        url += "&target_danceability=" + str(dance)
+    if 'energy' in specs:
+        energy = float(specs['energy']) / 100
+        url += "&target_energy=" + str(energy)
+    if 'valence' in specs:
+        valence = float(specs['valence']) / 100
+        url += "&target_valence=" + str(valence)
     #add popularity and other specs
     tracks = []
     data = requests.get(url, headers={"Authorization": 'Bearer ' + token}).json()
-    print(data)
     for track in data['tracks']:
         tracks.append(track['uri'])
     sp = spotipy.Spotify(auth=token)
     user_id = sp.current_user()['id']
-    # print(user_id)
     sp.user_playlist_create(user_id, specs['name'], public=True,
                             description="Playlist created by Spotify For You")
-    # print(sp.current_user_playlists(1, 0)['items'][0]['id'])
     playlist_id = (sp.current_user_playlists(1, 0)['items'][0]['id'])
     sp.user_playlist_add_tracks(user_id, playlist_id, tracks)
     return specs['name']
@@ -113,4 +122,17 @@ def get_top(token, limit, time):
         'tracks': tracks
     }
     return complete_obj
+
+# def for_nerds(sp):
+#     results = sp.current_user_playing_track()
+#     if results:
+#         link = results['item']['external_urls']['spotify']
+#         parsing = link.split('/')
+#         newlink = parsing[0] + '//' + parsing[1] + '/' + parsing[2] + "/embed/" + parsing[3] + '/' + parsing[4]
+#         stats = sp.audio_features(parsing[4])
+#     complete_stats = {
+#
+#     }
+#     return complete_stats
+
 
