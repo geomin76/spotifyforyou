@@ -30,13 +30,13 @@ def playlist(sp):
     playlists = sp.current_user_playlists()
     list = []
     for playlist in playlists['items']:
-        if playlist['owner']['id'] == sp.current_user()['id']:
-            id = playlist['external_urls']['spotify'].split("/")[4]
-            playlist_obj = {
-                "name": playlist['name'],
-                "id": id
-            }
-            list.append(playlist_obj)
+        # if playlist['owner']['id'] == sp.current_user()['id']:
+        id = playlist['external_urls']['spotify'].split("/")[4]
+        playlist_obj = {
+            "name": playlist['name'],
+            "id": id
+        }
+        list.append(playlist_obj)
     return list
 
 def playlist_calculation(sp, select):
