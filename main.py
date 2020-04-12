@@ -21,14 +21,14 @@ SPOTIFY_API_URL = "https://api.spotify.com/v1"
 
 # CLIENT_SIDE_URL = "https://playlist-statistics-267218.appspot.com/"
 # REDIRECT_URI = 'https://playlist-statistics-267218.appspot.com/callback'
-CLIENT_SIDE_URL = "http://spotifyforyou.com"
-REDIRECT_URI = 'http://spotifyforyou.com/callback'
+# CLIENT_SIDE_URL = "http://spotifyforyou.com"
+# REDIRECT_URI = 'http://spotifyforyou.com/callback'
 
 #for testing locally
-# CLIENT_SIDE_URL='http://127.0.0.1:5000'
-# REDIRECT_URI = 'http://127.0.0.1:5000/callback'
+CLIENT_SIDE_URL='http://127.0.0.1:5000'
+REDIRECT_URI = 'http://127.0.0.1:5000/callback'
 
-SCOPE = "user-library-read user-read-currently-playing playlist-read-collaborative user-library-modify playlist-read-private playlist-modify-public playlist-modify-private user-top-read"
+SCOPE = "user-library-read user-read-currently-playing playlist-read-collaborative user-library-modify playlist-read-private playlist-modify-public playlist-modify-private user-top-read user-modify-playback-state user-read-playback-state"
 app.secret_key = secret_key()
 
 auth_query_parameters = {
@@ -166,6 +166,17 @@ def for_nerds():
     data = user_content(sp)
     return render_template("for_nerds.html")
 
+@app.errorhandler(404)
+def not_found_error(error):
+    return render_template('404.html'), 404
+
+@app.errorhandler(500)
+def internal_error(error):
+    return render_template('500.html'), 500
+
+@app.errorhandler(401)
+def spotify_exception(error):
+    return render_template('401.html'), 401
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=5000, debug=True)
