@@ -123,16 +123,16 @@ def get_top(token, limit, time):
     }
     return complete_obj
 
-# def for_nerds(sp):
-#     results = sp.current_user_playing_track()
-#     if results:
-#         link = results['item']['external_urls']['spotify']
-#         parsing = link.split('/')
-#         newlink = parsing[0] + '//' + parsing[1] + '/' + parsing[2] + "/embed/" + parsing[3] + '/' + parsing[4]
-#         stats = sp.audio_features(parsing[4])
-#     complete_stats = {
-#
-#     }
-#     return complete_stats
+def for_nerds(sp):
+    results = sp.current_user_playing_track()
+    if results:
+        link = results['item']['external_urls']['spotify']
+        parsing = link.split('/')
+        newlink = parsing[0] + '//' + parsing[1] + '/' + parsing[2] + "/embed/" + parsing[3] + '/' + parsing[4]
+        stats = sp.audio_features(parsing[4])
+    complete_stats = {
+
+    }
+    return complete_stats
 
 
