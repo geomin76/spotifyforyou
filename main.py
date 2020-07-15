@@ -5,7 +5,7 @@ import sys
 from flask import render_template, request, redirect, session, url_for
 from six.moves.urllib.parse import quote
 import json
-from service.spotify_service import *
+from spotify_service import *
 from secrets import *
 
 
