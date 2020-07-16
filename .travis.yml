@@ -2,7 +2,7 @@ language: python
 python:
 - '2.7'
 before_install:
-- openssl aes-256-cbc -K $encrypted_720a7e7a712d_key -iv $encrypted_720a7e7a712d_iv
+- openssl aes-256-cbc -K $encrypted_720a7e7a712d_key -iv 0
   -in secrets.py.enc -out secrets.py -d
 - openssl aes-256-cbc -K $encrypted_0a6446eb3ae3_key -in secrets.py.enc -out secrets.py
   -d
