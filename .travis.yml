@@ -1,18 +1,15 @@
 language: python
-
 python:
 - '2.7'
-
 before_install:
-- openssl aes-256-cbc -K $encrypted_0a6446eb3ae3_key
+- openssl aes-256-cbc -K $encrypted_720a7e7a712d_key -iv $encrypted_720a7e7a712d_iv
   -in secrets.py.enc -out secrets.py -d
-
+- openssl aes-256-cbc -K $encrypted_0a6446eb3ae3_key -in secrets.py.enc -out secrets.py
+  -d
 install:
 - pip install -r requirements.txt
-
 script:
 - python main.py
-
 env:
   global:
     secure: mkhbKqCPyO4TQTRz3ijiGfEnTEOr3jwRa37fCEkoco5ZBK7tRPbUKaDMyxh9TRoOcgGgDSUcwVV7fUnIpXEGf+VFCPV33DcvKyd1whELom7NE62zMADVj2flm9V7rMcsTqwDzgolJKYBEczYXm2CkU/001MBRpNRt1wQUAGEn9z8+iyNLKWPZxmuntPnEDncLvcWrWIubnr6KrDDqTRtPX5wbQJq6RFZ+868d6syo32gsLi17NusbBImkIh0QYCjZyTz/lHApsacsLLkvBIYw1AN0eNV1VutS8cy/icmARjDph48zbOSXXgrkyE9D0vq0U3mGx0zTqMprzS84fCqQ8CHZZmDm9TPw5waLp0jO/mIgAgs6L3PA6yHU/4agSo6Z4dZqKtENkFBtWwiMDiZDwO51dv9Z2jwLyrCEZwYKb4ZEjDB6LhGpyJ1ZU9017XozIySxvpyJ3v1C61j9X9kSjPp5FAMo44eyHTg1rl+dLCXCjEMi0tFcN3HvZbQFLc6ANNs5zlQDjWmpwPYH69AfoTYJG2JfnUaZ0A0TiVnFlJ3ThEZMw2jVvVQoyvZ/ftGSHcH3/1pTbLOsqj6S5GhJYuKeHYbRr+GPAwWElu5UZ3yG7ICJS1Kw3xUi6y9LzCj55krnzuyUj5VJLTW1i5DDH3fif/nY0xuc+HbU1mGPys=
