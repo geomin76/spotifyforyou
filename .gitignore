@@ -4,3 +4,5 @@ secrets.py
 secrets.pyc
 /__pycache__/*
 /__pycache__
+*.pyc
+venv/
