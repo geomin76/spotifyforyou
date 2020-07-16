@@ -1,5 +1,7 @@
 # Spotify For You
 
+[![Build Status](https://travis-ci.com/geomin76/spotifyforyou.svg?branch=master)](https://travis-ci.com/geomin76/spotifyforyou)
+
 ### Features
 - Home
     - Displays your current song playing with statistics shown about the current song
