@@ -14,3 +14,4 @@ deploy:
   project: "playlist-statistics-267218"
   verbosity: debug
   on: master
+  skip_cleanup: true
