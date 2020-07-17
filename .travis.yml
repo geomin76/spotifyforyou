@@ -2,8 +2,13 @@ language: python
 python:
 - '2.7'
 before_install:
-- openssl aes-256-cbc -K $encrypted_720a7e7a712d_key -iv $encrypted_720a7e7a712d_iv -in secrets.py.enc -out secrets.py -d
+- openssl aes-256-cbc -K $encrypted_3b9f0b9d36d1_key -iv $encrypted_3b9f0b9d36d1_iv -in secrets.tar.enc -out secrets.tar -d
+- tar xvf secrets.tar
 install:
 - pip install -r requirements.txt
 script:
 - coverage report -m main.py
+deploy:
+  provider: gae
+  keyfile: "playlist-statistics-267218-e48c400b6bdf.json"
+  project: "playlist-statistics-267218"
