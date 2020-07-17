@@ -12,3 +12,5 @@ deploy:
   provider: gae
   keyfile: "playlist-statistics-267218-e48c400b6bdf.json"
   project: "playlist-statistics-267218"
+  verbosity: debug
+  on: master
