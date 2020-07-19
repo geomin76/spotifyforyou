@@ -25,8 +25,8 @@ SPOTIFY_API_URL = "https://api.spotify.com/v1"
 # REDIRECT_URI = 'http://spotifyforyou.com/callback'
 
 #for testing locally
-CLIENT_SIDE_URL='http://127.0.0.1:5000'
-REDIRECT_URI = 'http://127.0.0.1:5000/callback'
+CLIENT_SIDE_URL='http://0.0.0.0:8080'
+REDIRECT_URI = 'http://0.0.0.0:8080/callback'
 
 SCOPE = "user-library-read user-read-currently-playing playlist-read-collaborative user-library-modify playlist-read-private playlist-modify-public playlist-modify-private user-top-read user-modify-playback-state user-read-playback-state"
 app.secret_key = secret_key()
@@ -179,4 +179,4 @@ def spotify_exception(error):
     return render_template('401.html'), 401
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080, debug=True)
+    app.run(host='0.0.0.0', port=8079, debug=True)
