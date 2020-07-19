@@ -10,7 +10,7 @@ script:
 - coverage report -m main.py
 deploy:
   provider: gae
-  keyfile: "playlist-statistics-267218-9a922c935c91.json"
+  keyfile: "playlist-statistics-267218-0cf33cc56c14.json"
   project: "playlist-statistics-267218"
   verbosity: debug
   on: master
