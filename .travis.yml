@@ -13,4 +13,4 @@ deploy:
   keyfile: "playlist-statistics-267218-0cf33cc56c14.json"
   project: "playlist-statistics-267218"
   verbosity: debug
-  on: master
+  on: gcloud_fix
