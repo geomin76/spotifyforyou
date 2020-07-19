@@ -6,5 +6,6 @@ secrets.pyc
 /__pycache__
 *.pyc
 venv/
+env/
 playlist-statistics-267218-0cf33cc56c14.json
 credentials.tar.gz
