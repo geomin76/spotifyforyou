@@ -6,8 +6,8 @@ before_install:
 - tar xvzf credentials.tar.gz
 install:
 - pip install -r requirements.txt
-# script:
-# - coverage report -m main.py
+script:
+- coverage report -m main.py
 deploy:
   provider: gae
   keyfile: "playlist-statistics-267218-ced402e9ee45.json"
