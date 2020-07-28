@@ -1,19 +1,26 @@
 from flask import Flask
 from os import abort
 import sys
+import os
 
 from flask import render_template, request, redirect, session, url_for
 from six.moves.urllib.parse import quote
 import json
 from spotify_service import *
-import secrets
+# import secrets
 
 
 app = Flask(__name__)
 
 
-CLIENT_ID = secrets.client_id()
-CLIENT_SECRET = secrets.client_secret()
+# CLIENT_ID = secrets.client_id()
+# CLIENT_SECRET = secrets.client_secret()
+# app.secret_key = secrets.secret_key()
+
+CLIENT_ID = os.environ.get('ID')
+CLIENT_SECRET = os.environ.get('SECRET')
+app.secret_key = os.environ.get('SECRET_KEY')
+
 
 SPOTIFY_AUTH_URL = "https://accounts.spotify.com/authorize"
 SPOTIFY_TOKEN_URL = "https://accounts.spotify.com/api/token"
@@ -29,7 +36,6 @@ CLIENT_SIDE_URL='http://127.0.0.1:8080'
 REDIRECT_URI = 'http://127.0.0.1:8080/callback'
 
 SCOPE = "user-library-read user-read-currently-playing playlist-read-collaborative user-library-modify playlist-read-private playlist-modify-public playlist-modify-private user-top-read user-modify-playback-state user-read-playback-state"
-app.secret_key = secrets.secret_key()
 
 auth_query_parameters = {
     "response_type": "code",

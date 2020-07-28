@@ -8,4 +8,4 @@ secrets.pyc
 venv/
 env/
 playlist-statistics-267218-ced402e9ee45.json
-credentials.tar.gz
+env/
