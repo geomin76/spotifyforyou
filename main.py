@@ -7,8 +7,6 @@ from flask import render_template, request, redirect, session, url_for
 from six.moves.urllib.parse import quote
 import json
 from spotify_service import *
-# import secrets
-
 
 app = Flask(__name__)
 
