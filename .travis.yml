@@ -2,9 +2,8 @@ language: python
 python:
 - '3.7'
 before_install:
-- openssl aes-256-cbc -K $encrypted_a94a7f60e0ca_key -iv $encrypted_a94a7f60e0ca_iv
-  -in playlist-statistics-267218-ced402e9ee45.json.enc -out playlist-statistics-267218-ced402e9ee45.json
-  -d
+- openssl aes-256-cbc -K $encrypted_cdc0677920ab_key -iv $encrypted_cdc0677920ab_iv -in secrets.tar.gz.enc -out secrets.tar.gz -d
+- tar xvzf secrets.tar.gz
 install:
 - pip install -r requirements.txt
 script:
