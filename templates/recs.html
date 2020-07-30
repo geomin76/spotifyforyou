@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
+		<br>
+		<h1>Generate a playlist</h1>
+		<p>Create a playlist with your desired statistics</p>
+		<br>
+		<form method="POST" action="{{ url_for('recs_final') }}">
+			<div class="form-group">
+				<label for="name">Name of your generated playlist:</label>
+				<input type="string" id="name" name="name" required>
+			</div>
+			<div class="form-group">
+				<label for="quantity">Number of songs (between 1 and 100):</label>
+				<input type="number" id="quantity" name="quantity" min="1" max="100" required>
+			</div>
+			<div class="form-group">
+				<div class="input-group">
+					<span class="input-group-addon">Please select up to 5 genre(s) &nbsp;</span>
+						<select name="comp_select" class="selectpicker form-control" required multiple>
+							<optgroup data-max-options="5">
+							{% for gen in genre %}
+								<option style="background-color: #23a6d5; width:100%;" value="{{ gen }}">{{ gen }}</option>
+							{% endfor %}
+							</optgroup>
+						</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="danceability">Optional Target Danceability (between 1 and 100):</label>
+				<input type="number" id="danceability" name="danceability" min="1" max="100">
+			</div>
+			<div class="form-group">
+				<label for="valence">Optional Target Happiness (between 1 and 100):</label>
+				<input type="number" id="valence" name="valence" min="1" max="100">
+			</div>
+			<div class="form-group">
+				<label for="energy">Optional Target Energy (between 1 and 100):</label>
+				<input type="number" id="energy" name="energy" min="1" max="100">
+			</div>
+			<button type="submit" class="btn btn-primary ld-over-full" onclick="this.classList.toggle('running')" style="background-color: #05386B">
+				Create the playlist
+				<div class="ld ld-ring ld-spin"></div>
+			</button>
+		</form>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
+		<br>
+		<h1>Playlist Statistics</h1>
+		<p>Learn statistics about your playlist!</p>
+		<br>
+		<p>Select one of your playlists</p>
+		<form method="POST" action="{{ url_for('playlist_select') }}">
+			<div class="form-group">
+				<div class="form-group" align="center">
+					<div class="input-group">
+						<span class="input-group-addon">Please select a playlist &nbsp;</span>
+							<select name="comp_select" class="selectpicker form-control">
+								{% for playlist in playlists %}
+									<option style="background-color: #23a6d5; width:100%;" value="{{ playlist }}">{{ playlist.name }}</option>
+								{% endfor %}
+							</select>
+					</div>
+					<br>
+					<button type="submit" class="btn btn-primary ld-over-full" onclick="this.classList.toggle('running')" style="background-color: #05386B">
+						Select
+						<div class="ld ld-ring ld-spin"></div>
+					</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+{% endblock %}

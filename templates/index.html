@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
+		<br>
+		{% if data %}
+		<h2>Welcome, {{ data.user }}!</h2>
+		<h3>Your current song playing: {{ data.name }} by {{ data.artist }}</h3>
+		<div align="center">
+			<iframe id="test" src={{ data.link }} width="300" height="80" frameborder="0" allowtransparency="false"  allow="encrypted-media"></iframe>
+		</div>
+		<br>
+		<p> The danceability of the song out of 100 is:</p>
+		<div class="progress" style="height: 30px; font-size:20px;">
+			<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: {{ data.stats.dance }}%" aria-valuenow={{ data.stats.dance }} aria-valuemin="0" aria-valuemax="100">{{ data.stats.dance }}</div>
+		</div>
+		<br>
+		<p> The happiness of the song out of 100 is:</p>
+		<div class="progress" style="height: 30px; font-size:20px;">
+			<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: {{ data.stats.valence }}%" aria-valuenow={{ data.stats.valence }} aria-valuemin="0" aria-valuemax="100">{{ data.stats.valence }}</div>
+		</div>
+		<br>
+		<p> The energy of the song out of 100 is:</p>
+		<div class="progress" style="height: 30px; font-size:20px;">
+			<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" style="width: {{ data.stats.energy }}%" aria-valuenow={{ data.stats.energy }} aria-valuemin="0" aria-valuemax="100">{{ data.stats.energy }}</div>
+		</div>
+		<br>
+		<p style="font-size:17px;">The values shown are computed through Spotify's track analysis</p>
+		<br>
+		<br>
+		<p>Playing a new song? </p>
+		<button class="btn btn-primary ld-over-full" onclick="this.classList.toggle('running'); window.location.reload();" style="background-color: #05386B">
+			Click here for new statistics
+			<div class="ld ld-ring ld-spin"></div>
+		</button>
+		{% else %}
+		<p>You're not playing any music right now.</p>
+		<p>Play some music!</p>
+		<br>
+		<button class="btn btn-primary ld-over-full" onclick="this.classList.toggle('running'); window.location.reload();" style="background-color: #05386B">
+			Click here if you're playing music now!
+			<div class="ld ld-ring ld-spin"></div>
+		</button>
+		{% endif %}
+	</div>
+</div>
+{% endblock %}
