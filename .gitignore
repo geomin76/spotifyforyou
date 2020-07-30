@@ -8,6 +8,5 @@ secrets.pyc
 venv/
 env/
 playlist-statistics-267218-ced402e9ee45.json
-env/
 secrets.tar.gz
-env_variables.yaml
+app.yaml

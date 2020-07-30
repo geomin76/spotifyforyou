@@ -1,7 +1,9 @@
 runtime: python37
 
-includes:
-  - env_variables.yaml
+env_variables:
+- ID: '1163e4fb05aa45238012c33970bb7095'
+- SECRET: 'bf8085c460dd4177b9b897d0e5ce9a58'
+- SECRET_KEY: 'geominfun'
 
 handlers:
   - url: /static
