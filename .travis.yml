@@ -13,7 +13,7 @@ deploy:
   keyfile: playlist-statistics-267218-ced402e9ee45.json
   project: playlist-statistics-267218
   verbosity: debug
-  on: gcloud_fix
+  on: master
 env:
   global:
   - secure: OWlCz/Vc4TMEcL3M7arkcHm5Lrv9oiTAciuO4Y14KF1cjj/ngt+/8tZj9yMBVW2aJ4hf0SJKBuFPyEwkFsWEnWFG8WgfdO7bOcOm6tYr8xpShyzY2+uddKA1DCwvXgBK0clU/dT+vyx6tCUumKUzkUBVxvlHWC6tvbzEE9dhrzCGOITK+AUBZkcr/nGfVsP5yOUsBrojzOny/S2r30b3jRWetek/JuIERw0maS3Q/+xHvDA8E5BBpySJiVvgF0kwH86iWw8d3S936wp0rrLSPD+/u8UYMB7J+QpNSY8+MPDERDuF78auozrknOFGofKCHab75tZQ2bFc6T0BWtWwQkQ/HRarm9yfOot5P7MSmoO1mkl8cK5+VqSYm8vgr8e3V6ZRk8nJZWrOsLV5V8zwFcrJrO3Lqr2DKGNo1UJ0i/z7oibkeElVr6j8UZg2PBnL08uNKcJESGvDTqoCHFni52+i/Ch1TPdi33kYC5C8MvXBuYdA3hiYqLMVy9CWnn+hds5iQNR0E+RM+0gNBgPCATWHCxC6uHoDs8rSh/4gZXZO2ljvNHOCkDb1xaZAgBZ+ECcpzFQbptnuLBFDYLBffKCuUA8iLixqh+BCAbRl7Zs65YWdwj4t2p+tPTMywOBMfPz5CK7SOHaWjKan47awTiqnScuczVlibJ2YOJoDb80=

@@ -9,3 +9,4 @@ venv/
 env/
 playlist-statistics-267218-ced402e9ee45.json
 secrets.tar.gz
+app.yaml
