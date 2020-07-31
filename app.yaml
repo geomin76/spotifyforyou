@@ -5,4 +5,7 @@ handlers:
     static_dir: static
   - url: /.*
     script: auto
+  
+builtins:
+- remote_api: on
 
