@@ -7,5 +7,5 @@ handlers:
     script: auto
   
 builtins:
-- remote_api: on
+  - remote_api: on
 
