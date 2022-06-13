@@ -24,10 +24,10 @@ SPOTIFY_AUTH_URL = "https://accounts.spotify.com/authorize"
 SPOTIFY_TOKEN_URL = "https://accounts.spotify.com/api/token"
 SPOTIFY_API_URL = "https://api.spotify.com/v1"
 
-# CLIENT_SIDE_URL = "https://playlist-statistics-267218.appspot.com/"
-# REDIRECT_URI = 'https://playlist-statistics-267218.appspot.com/callback'
-CLIENT_SIDE_URL = "http://spotifyforyou.com"
-REDIRECT_URI = 'http://spotifyforyou.com/callback'
+CLIENT_SIDE_URL = "https://playlist-statistics-267218.appspot.com/"
+REDIRECT_URI = 'https://playlist-statistics-267218.appspot.com/callback'
+# CLIENT_SIDE_URL = "http://spotifyforyou.com"
+# REDIRECT_URI = 'http://spotifyforyou.com/callback'
 
 #for testing locally
 # CLIENT_SIDE_URL='http://127.0.0.1:8080'
