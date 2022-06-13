@@ -51,7 +51,7 @@ def main():
 @app.route("/authorize")
 def authorize():
     # Auth Step 1: Authorization
-    url_args = "&".join(["{}={}".format(key, quote(val)) for key, val in auth_query_parameters.items()])
+    url_args = "&".join(["{}={}".format(key, quote(str(val))) for key, val in auth_query_parameters.items()])
     auth_url = "{}?{}".format(SPOTIFY_AUTH_URL, url_args)
     return redirect(auth_url)
 
