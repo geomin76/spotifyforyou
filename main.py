@@ -52,7 +52,7 @@ def main():
 def authorize():
     # Auth Step 1: Authorization
     url_args = "&".join(["{}={}".format(key, quote(val)) for key, val in auth_query_parameters.items()])
-    auth_url = "{}/?{}".format(SPOTIFY_AUTH_URL, url_args)
+    auth_url = "{}?{}".format(SPOTIFY_AUTH_URL, url_args)
     return redirect(auth_url)
 
 #after getting user access token, it redirects to home page
